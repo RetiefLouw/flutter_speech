@@ -1,6 +1,6 @@
 # Speech recognition
 
-This is an application showinghow to perform non-realtime speech recognition on-device using a Whisper model.
+This is an application showing how to perform non-realtime speech recognition on-device using a Whisper model.
 
 
 ## Getting started
