@@ -22,3 +22,12 @@ This is an application showing how to perform non-realtime speech recognition on
 		    - assets/models/tiny-encoder.int8.onnx
 		    - assets/models/tiny-decoder.int8.onnx
 		    - assets/models/tiny-tokens.txt
+
+### Run application on android device
+
+Open folder in vscode: `code .`
+
+In the command palette enter `Flutter: Select device` and choose your android device.
+
+From `main.dart` run the debug play button.
+   
