@@ -8,8 +8,8 @@ This application implements a real-time voice activity detection (VAD) system us
 
 1. Create directory:
 
-	mkdir -p assets/models
-	cd assets/models
+		mkdir -p assets/models
+		cd assets/models
 
 2. Download model:
 
