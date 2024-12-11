@@ -11,7 +11,7 @@ This is an application showing how to perform non-realtime speech recognition on
 
 		mkdir -p assets/models
 
-2. Export HF Whisper model [here](../../scripts/whisper)
+2. Export HF Whisper model [here](../../scripts/whisper) and copy model files to `assets/models`.
 
 3. Change `pubspec.yaml`. For example:
 	
