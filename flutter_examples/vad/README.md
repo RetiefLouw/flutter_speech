@@ -23,7 +23,7 @@ This application implements a real-time voice activity detection (VAD) system us
 		  assets:
 		  - assets/models/silero_vad.onnx
 
-### Run application on android device:
+### Run application on android device
 
 Open folder in vscode: `code .`
 
