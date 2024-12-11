@@ -18,6 +18,6 @@
 		  ...
 		  assets:
 		  ....
-		   	- assets/models/tiny-encoder.int8.onnx
+		    - assets/models/tiny-encoder.int8.onnx
 		    - assets/models/tiny-decoder.int8.onnx
 		    - assets/models/tiny-tokens.txt
