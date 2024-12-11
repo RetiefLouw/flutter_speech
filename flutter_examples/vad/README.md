@@ -29,6 +29,6 @@ Open folder in vscode: `code .`
 
 In the command palette enter `Flutter: Select device` and choose your android device.
 
-From the `main.dart` run the debug play button.
+From `main.dart` run the debug play button.
    
    	
