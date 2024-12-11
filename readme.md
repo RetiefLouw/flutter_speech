@@ -91,22 +91,66 @@ Running `java --version` in terminal should give:
 		flutter doctor --android-licenses
 
 
+## Creating new Flutter Project:
+
 Run:
 
 	flutter doctor
 
 
-Check Gradle version/ Update gradle to 8.9:
+
+
+Setup Android stuff:
+
+		cd android	
+
+Check Gradle version:
+
+		./android/gradlew wrapper --version
+
+Update gradle to 8.9:
 	
-	cd android
-	./gradlew wrapper --gradle-version=8.9
+	./android/gradlew wrapper --gradle-version=8.9
 
+In `android/settings.gradle`, replace:
+    
+    id "com.android.application" version "8.1.0" apply false
 
-In settings.gradle:
+with
 	
 	id "com.android.application" version "8.7.1" apply false
 
+In android/app/build.gradle, add:
 
+	defaultConfig {
+		...
+		minSdkVersion 24
+	}
+
+In android/app/build.gradle, change:
+
+
+	android{
+		...
+    	
+    	ndkVersion = flutter.ndkVersion
+
+    	...
+    }
+
+to 
+	
+	android{
+		...
+    	
+ 		ndkVersion = "27.0.12077973"
+
+    	...
+    }
+
+
+
+Ignore warning messages for now...
 
 
 # Building blocks
