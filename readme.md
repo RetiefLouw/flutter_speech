@@ -1,0 +1,126 @@
+
+
+# Setup Android development environment on Linux
+
+[Link](https://docs.flutter.dev/get-started/install/linux/android) to the official installation instructions.
+
+Applications built using the following versions:
+
+- JDK 17
+- Android Studio 2024.2.1 (Ladybug)
+- Flutter 3.24.3
+- Dart 3.5.3
+- DevTools 2.37.3
+- Gradle 8.9
+
+
+## Install Java Development Kit
+
+Install JDK 17:
+
+	sudo apt install openjdk-17-jdk-headless
+
+Add to PATH:
+
+	echo '# JDK' >> ~/.bashrc
+	echo 'export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"' >> ~/.bashrc
+	echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.bashrc
+
+Running `java --version` in terminal should give:
+
+	openjdk 17.0.13 2024-10-15
+	OpenJDK Runtime Environment (build 17.0.13+11-Ubuntu-2ubuntu122.04)
+	OpenJDK 64-Bit Server VM (build 17.0.13+11-Ubuntu-2ubuntu122.04, mixed mode, sharing)
+
+
+## Flutter Setup
+
+
+<!-- #### Development Tools -->
+	
+1. Install [**development tools**](https://docs.flutter.dev/get-started/install/linux/android#development-tools)
+
+
+2. Install [*Android Studio*](https://developer.android.com/studio/install#linux)
+
+	Download version 2024.2.1.12:
+
+		wget https://dl.google.com/dl/android/studio/ide-zips/2024.2.1.12/android-studio-2024.2.1.12-linux.tar.gz
+
+	Unpack and move:
+	
+		tar -zxvf android-studio-2022.1.1.21-linux.tar.gz
+		sudo mv android-studio /opt/
+
+	Install required [libraries ](https://developer.android.com/studio/install#64bit-libs)
+
+	Note: Ignore error of libncurses. Just make sure libncurses-dev is installed:
+	
+		sudo apt install libncurses-dev
+
+
+	[Configure](https://docs.flutter.dev/get-started/install/linux/android#configure-android-development) Android toolchain in Android Studio.
+
+
+3. Install Flutter 
+
+	To use specific Flutter version:
+		
+		git clone -b main https://github.com/flutter/flutter.git
+
+	Add to PATH:
+
+		echo '# Flutter SDK' >> ~/.bashrc
+		echo 'export PATH="~/development/flutter/bin:$PATH"' >> ~/.bashrc
+
+	To see the commit history of available versions, run:
+
+		flutter downgrade
+
+	Downgrade to version 3.24.3 using commit-hash=2663184 (see [archive](https://docs.flutter.dev/release/archive)):
+		
+		git checkout 2663184
+
+	Confirm version:
+
+		./flutter --version
+
+
+	Agree to Android licenses:
+
+		flutter doctor --android-licenses
+
+
+Run:
+
+	flutter doctor
+
+
+Check Gradle version/ Update gradle to 8.9:
+	
+	cd android
+	./gradlew wrapper --gradle-version=8.9
+
+
+In settings.gradle:
+	
+	id "com.android.application" version "8.7.1" apply false
+
+
+
+
+# Building blocks
+- [Voice activity detection](#blocks/vad/readme.md)
+- Speech recognition
+- Speech feature extraction using self-supervised speech models
+
+## Prototpyes
+Main assessment:
+- VAD (silero)
+- Whisper on-device
+- recording
+
+Template matching
+- VAD
+- recording
+- feature extractor
