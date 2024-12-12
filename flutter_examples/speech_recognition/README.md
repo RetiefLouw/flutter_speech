@@ -14,7 +14,7 @@ This is an application showing how to perform non-realtime speech recognition on
 2. Export HF Whisper model [here](../../scripts/whisper) and copy model files to `assets/models`.
 	For example, to export Whisper tiny:
 
-		python ../../scripts/whisper/export-onnx.py --model tiny --hf_model openai/whisper-tiny
+		python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
 
 	Link model files to assets:
 
