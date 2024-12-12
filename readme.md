@@ -54,7 +54,7 @@ Running `java --version` in terminal should give:
 
 	Install the required libraries using the [terminal commands](https://developer.android.com/studio/install#64bit-libs).
 
-   	[!NOTE]
+   	**Note**
    	Ignore error of libncurses. Just make sure libncurses-dev is installed:
 	
 		sudo apt install libncurses-dev
