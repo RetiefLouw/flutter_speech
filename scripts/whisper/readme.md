@@ -1,4 +1,9 @@
-# Export Whisper HF model to ONNX
+## Install dependencies:
+
+	conda env create -f environment.yml
+
+
+## Export Whisper HF model to ONNX
 
 	./whisper_onnx/export-onnx.py \
 	--model tiny \
