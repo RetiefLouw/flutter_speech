@@ -15,7 +15,7 @@ This application implements a real-time voice activity detection (VAD) system us
 
 		wget https://github.com/snakers4/silero-vad/blob/master/src/silero_vad/data/silero_vad.onnx
 	
-3. Change `pubspec.yaml`
+3. Change `pubspec.yaml`:
 
 		flutter:
 		  ...
