@@ -41,7 +41,7 @@ Running `java --version` in terminal should give:
 1. Install **development tools** by executing the [terminal commands](https://docs.flutter.dev/get-started/install/linux/android#development-tools) provided in the documentation.
 
 
-2. Install [**Android Studio**](https://developer.android.com/studio/install#linux) using the following steps:
+2. Install **Android Studio** using the following steps ([link](https://developer.android.com/studio/install#linux) to documentation):
 
 	Download version 2024.2.1.12:
 
