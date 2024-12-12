@@ -54,7 +54,8 @@ Running `java --version` in terminal should give:
 
 	Install the required libraries using the [terminal commands](https://developer.android.com/studio/install#64bit-libs).
 
-	Note: Ignore error of libncurses. Just make sure libncurses-dev is installed:
+   	[!NOTE]
+   	Ignore error of libncurses. Just make sure libncurses-dev is installed:
 	
 		sudo apt install libncurses-dev
 
@@ -62,7 +63,7 @@ Running `java --version` in terminal should give:
 	[Configure](https://docs.flutter.dev/get-started/install/linux/android#configure-android-development) Android toolchain in Android Studio.
 
 
-3. Install **Flutter** 
+4. Install **Flutter** 
 
 	To use specific Flutter version:
 		
