@@ -12,4 +12,5 @@
 
 Copy the exported files to the assets folder in the Flutter application, and update the `pubspec.yaml` file accordingly.
 
-Note: The script `export-onnx.py` is modified from [this repository](https://github.com/k2-fsa/sherpa-onnx/tree/master/scripts/whisper). Hugging Face conversion has been added.
+>[!NOTE]
+>The script export_onnx.py is adapted from [this repository](https://github.com/k2-fsa/sherpa-onnx/tree/master/scripts/whisper), with added functionality for Hugging Face model conversion.
