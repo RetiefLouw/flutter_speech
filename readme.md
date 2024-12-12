@@ -1,8 +1,3 @@
->**Note** THis is a note
-
->[!NOTE]
-Note heere
-
 # Setup Android development environment on Linux
 
 [Link](https://docs.flutter.dev/get-started/install/linux/android) to the official installation instructions.
@@ -57,11 +52,15 @@ Running `java --version` in terminal should give:
 
 	Install the required libraries using the [terminal commands](https://developer.android.com/studio/install#64bit-libs).
 
-   	**Note**
+   	>**Note**
    	Ignore error of libncurses. Just make sure libncurses-dev is installed:
 	
 		sudo apt install libncurses-dev
 
+	>[!Note]
+   	Ignore error of libncurses. Just make sure libncurses-dev is installed:
+	
+		sudo apt install libncurses-dev
 
 	[Configure](https://docs.flutter.dev/get-started/install/linux/android#configure-android-development) Android toolchain in Android Studio.
 
