@@ -52,7 +52,7 @@ Running `java --version` in terminal should give:
 		tar -zxvf android-studio-2022.1.1.21-linux.tar.gz
 		sudo mv android-studio /usr/local/
 
-	Install the required [libraries](https://developer.android.com/studio/install#64bit-libs) using the terminal commands.
+	Install the required libraries using the [terminal commands](https://developer.android.com/studio/install#64bit-libs).
 
 	Note: Ignore error of libncurses. Just make sure libncurses-dev is installed:
 	
