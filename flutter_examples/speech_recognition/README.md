@@ -23,7 +23,7 @@ This is an application showing how to perform non-realtime speech recognition on
 		ln -s $(pwd)/../../scripts/whisper/out/tiny-tokens.txt assets/models/
 
 
-4. Change `pubspec.yaml`. For example:
+4. Change `pubspec.yaml`:
 	
 		flutter:
 		  ...
