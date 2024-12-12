@@ -15,8 +15,7 @@ class ASRHomePage extends StatefulWidget {
 }
 
 class _ASRHomePageState extends State<ASRHomePage> {
-  final List<String> audioFiles = ['audio/adult_id_afr.wav'];
-  // final List<String> audioFiles = ['audio1.mp3', 'audio2.mp3', 'audio3.mp3'];
+  final List<String> audioFiles = ['audio/audio1.wav', 'audio/audio2.wav', 'audio/audio3.wav'];
   String? selectedFile;
 
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -43,9 +42,10 @@ class _ASRHomePageState extends State<ASRHomePage> {
 
       RecognizeWhisper recognizer = RecognizeWhisper(); // Instantiate once
 
+      // String inputWavFile =
+          // await copyAssetFile("assets/audio/adult_id_afr.wav");
       String inputWavFile =
-          await copyAssetFile("assets/audio/adult_id_afr.wav");
-
+          await copyAssetFile("assets/${selectedFile!}");
       transcription = await recognizer.transcribe(inputWavFile);
       // print(transcription);
       _updateText(transcription!);

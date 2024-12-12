@@ -336,7 +336,7 @@ class TextDecoderTensorCache(nn.Module):
 
 
 # ref: https://github.com/ggerganov/whisper.cpp/blob/master/models/convert-pt-to-ggml.py#L232
-def convert_tokens(name, model):
+def convert_tokens(name, model, args):
     whisper_dir = Path(whisper.__file__).parent
     multilingual = model.is_multilingual
     tokenizer = (
@@ -360,7 +360,7 @@ def convert_tokens(name, model):
             for token, rank in (line.split() for line in contents.splitlines() if line)
         }
 
-    with open(f"{name}-tokens.txt", "w") as f:
+    with open(f"{args.out_dir}/{name}-tokens.txt", "w") as f:
         for t, i in tokens.items():
             f.write(f"{t} {i}\n")
 
@@ -465,7 +465,7 @@ def main():
         sum(p.numel() for p in model.decoder.parameters()),
     )
 
-    convert_tokens(name=name, model=model)
+    convert_tokens(name=name, model=model, args=args)
 
     # write tokens
 
@@ -514,7 +514,7 @@ def main():
         model.dims.n_text_state,
     ), (n_layer_cross_v.shape, model.dims)
 
-    encoder_filename = f"{name}-encoder.onnx"
+    encoder_filename = f"{args.out_dir}/{name}-encoder.onnx"
     torch.onnx.export(
         encoder,
         mel,
