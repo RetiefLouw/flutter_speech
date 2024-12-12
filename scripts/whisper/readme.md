@@ -5,7 +5,7 @@
 
 ## Export Hugging Face Whisper model to ONNX
 
-	./whisper_onnx/export-onnx.py \
+	python export_onnx.py \
 	--model tiny \
 	--hf_model openai/whisper-tiny \
 	--out_dir whisper-tiny
