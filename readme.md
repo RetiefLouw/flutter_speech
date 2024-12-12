@@ -38,10 +38,10 @@ Running `java --version` in terminal should give:
 
 <!-- #### Development Tools -->
 	
-1. Install [**development tools**](https://docs.flutter.dev/get-started/install/linux/android#development-tools) in terminal.
+1. Install **development tools** by executing the [terminal commands](https://docs.flutter.dev/get-started/install/linux/android#development-tools) provided in the documentation.
 
 
-2. Install [**Android Studio**](https://developer.android.com/studio/install#linux) as follows:
+2. Install [**Android Studio**](https://developer.android.com/studio/install#linux) using the following steps:
 
 	Download version 2024.2.1.12:
 
@@ -52,7 +52,7 @@ Running `java --version` in terminal should give:
 		tar -zxvf android-studio-2022.1.1.21-linux.tar.gz
 		sudo mv android-studio /usr/local/
 
-	Install required [libraries](https://developer.android.com/studio/install#64bit-libs) in terminal.
+	Install the required [libraries](https://developer.android.com/studio/install#64bit-libs) using the terminal commands.
 
 	Note: Ignore error of libncurses. Just make sure libncurses-dev is installed:
 	
@@ -62,7 +62,7 @@ Running `java --version` in terminal should give:
 	[Configure](https://docs.flutter.dev/get-started/install/linux/android#configure-android-development) Android toolchain in Android Studio.
 
 
-3. Install Flutter 
+3. Install **Flutter** 
 
 	To use specific Flutter version:
 		
