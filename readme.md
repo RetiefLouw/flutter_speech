@@ -1,6 +1,6 @@
-**Note** THis is a note
+>**Note** THis is a note
 
-[!NOTE]
+>[!NOTE]
 Note heere
 
 # Setup Android development environment on Linux
