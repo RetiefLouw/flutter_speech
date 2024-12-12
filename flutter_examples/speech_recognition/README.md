@@ -35,7 +35,7 @@ This is an application showing how to perform non-realtime speech recognition on
 
 ### Audio
 
-Three audio files from the babloon test set is included in the assets folder.
+Three audio files from the babloon test set are included in the assets folder.
 
 ## Run application on android device
 
