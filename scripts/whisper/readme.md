@@ -3,7 +3,7 @@
 	conda env create -f environment.yml
 
 
-## Export HF Whisper model to ONNX
+## Export Hugging Face Whisper model to ONNX
 
 	./whisper_onnx/export-onnx.py \
 	--model tiny \
