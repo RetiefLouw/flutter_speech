@@ -154,9 +154,9 @@ Ignore warning messages for now...
 
 
 # Building blocks
-- [Voice activity detection](#blocks/vad/readme.md)
-- Speech recognition
-- Speech feature extraction using self-supervised speech models
+- [Voice activity detection](flutter_examples/vad/readme.md)
+- [Speech recognition](flutter_examples/speech_recognition/readme.md)
+- [Speech feature extraction using self-supervised speech models](flutter_examples/template_matching/readme.md)
 
 ## Prototpyes
 Main assessment:
