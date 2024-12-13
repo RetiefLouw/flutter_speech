@@ -75,9 +75,10 @@ Running `java --version` in the terminal should display the following:
 		
 		git checkout 2663184
 
-	Confirm version:
+	Running `./flutter --version` in the terminal should display the following:
 
-		./flutter --version
+
+   
 
 
 	Agree to Android licenses:
