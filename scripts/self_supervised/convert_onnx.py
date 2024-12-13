@@ -10,14 +10,14 @@ def main(args):
     # model = "facebook/wav2vec2-large-xlsr-53"
     model_name = args.model_name_or_path
     
-    out_dir = "hubert-base-ls960"
+    # out_dir = "hubert-base-ls960"
     out_dir = Path(model_name).stem
         
     config = AutoConfig.from_pretrained(model_name)
     
     if args.num_hidden_layers:
         config.num_hidden_layers = args.num_hidden_layers
-        out_dir += f".layer_{args.num_hidden_layers}"
+        out_dir += f".layers_{args.num_hidden_layers}"
         
     hf_model = AutoModel.from_config(config)
     hf_out = f"{out_dir}/hf"
