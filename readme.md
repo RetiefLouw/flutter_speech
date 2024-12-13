@@ -3,7 +3,7 @@
 Here is the [link](https://docs.flutter.dev/get-started/install/linux/android) to the official installation instructions. Below are the steps to set up the development environment used for the applications in `flutter_examples`.
 
 
-Applications built using the following versions:
+The following versions were used to build the projects:
 
 - JDK 17
 - Android Studio 2024.2.1 (Ladybug)
