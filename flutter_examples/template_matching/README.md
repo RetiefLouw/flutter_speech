@@ -32,9 +32,7 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 		  ...
 		  assets:
 		  ....
-		    - assets/models/tiny-encoder.int8.onnx
-		    - assets/models/tiny-decoder.int8.onnx
-		    - assets/models/tiny-tokens.txt
+		    - assets/models/model.onnx
 
 ### Audio
 
