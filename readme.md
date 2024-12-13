@@ -25,7 +25,7 @@ Add to PATH:
 	echo 'export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"' >> ~/.bashrc
 	echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.bashrc
 
-Running `java --version` in terminal should give:
+Running `java --version` in the terminal should display the following:
 
 	openjdk 17.0.13 2024-10-15
 	OpenJDK Runtime Environment (build 17.0.13+11-Ubuntu-2ubuntu122.04)
