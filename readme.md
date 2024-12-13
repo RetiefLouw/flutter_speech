@@ -77,8 +77,7 @@ Running `java --version` in the terminal should display the following:
 
 	Running `./flutter --version` in the terminal should display the following:
 
-
-	   	Flutter 3.24.3 • channel stable • https://github.com/flutter/flutter.git
+		Flutter 3.24.3 • channel stable • https://github.com/flutter/flutter.git
 		Framework • revision dec2ee5c1f (4 weeks ago) • 2024-11-13 11:13:06 -0800
 		Engine • revision a18df97ca5
 		Tools • Dart 3.5.3 • DevTools 2.37.3
