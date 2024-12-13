@@ -10,11 +10,17 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 
 		mkdir -p assets/models
 
-2. Export HF model [here](../../scripts/self_supervised) and copy model files to `assets/models`.
+2. See [this readme](../../scripts/self_supervised) to export a Hugging Face S3M model.
 
-	For example, to use hubert-base
+	For example, to export Hubert-Base to ONNX:
+   	
+    		1. Install dependencies
 
-		python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
+			conda env create -f environment.yml
+			conda activate s3m_onnx
+		2. Export model
+			python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
+   
 
 	>[!NOTE]
 	> See [this readme](../../scripts/self_supervised) for more options.
