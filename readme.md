@@ -71,7 +71,7 @@ Running `java --version` in the terminal should display the following:
 
 		flutter downgrade
 
-	Downgrade to version 3.24.3 using commit-hash=2663184 (see [archive](https://docs.flutter.dev/release/archive)):
+	Downgrade to version 3.24.3 using with `commit-hash = 2663184` (see [archive](https://docs.flutter.dev/release/archive)):
 		
 		git checkout 2663184
 
