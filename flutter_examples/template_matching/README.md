@@ -52,4 +52,4 @@ Insert image here
 
 1. Hold down the recording button until it turns red, then say a word.
 2. Press the Play button to listen to the audio.
-3. Click Predict to classify word,
+3. Click Predict to classify word.
