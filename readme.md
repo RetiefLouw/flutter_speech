@@ -37,7 +37,7 @@ Running `java --version` in the terminal should display the following:
 
 <!-- #### Development Tools -->
 	
-1. Install **development tools** by executing the [terminal commands](https://docs.flutter.dev/get-started/install/linux/android#development-tools) provided in the documentation.
+1. Install the **development tools** by executing the [terminal commands](https://docs.flutter.dev/get-started/install/linux/android#development-tools) provided in the documentation.
 
 
 2. Install **Android Studio** using the following steps ([link](https://developer.android.com/studio/install#linux) to documentation):
