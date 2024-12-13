@@ -22,8 +22,8 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 			python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
    
 
-	>[!NOTE]
-	> See [this readme](../../scripts/self_supervised) for more options.
+>[!NOTE]
+>More options [here](../../scripts/self_supervised).
 
 	Link model files to assets:
 
