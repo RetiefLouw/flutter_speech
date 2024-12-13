@@ -13,8 +13,8 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 2. See [this readme](../../scripts/self_supervised) to export a Hugging Face S3M model.
 
 	For example, to export Hubert-Base to ONNX:
-   	
-    		# Install dependencies
+
+   		# Install dependencies
 		conda env create -f environment.yml
 		conda activate s3m_onnx
 
