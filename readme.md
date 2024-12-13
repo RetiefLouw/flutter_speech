@@ -95,11 +95,11 @@ Run:
 
 Setup Android stuff:
 
-		cd android	
+	cd android	
 
 Check Gradle version:
 
-		./android/gradlew wrapper --version
+	./android/gradlew wrapper --version
 
 Update gradle to 8.9:
 	
@@ -125,21 +125,17 @@ In android/app/build.gradle, change:
 
 	android{
 		...
-    	
-    	ndkVersion = flutter.ndkVersion
-
-    	...
-    }
+	    	ndkVersion = flutter.ndkVersion
+	    	...
+	}
 
 to 
 	
 	android{
 		...
-    	
  		ndkVersion = "27.0.12077973"
-
-    	...
-    }
+		...
+  	}
 
 
 
