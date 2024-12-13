@@ -50,6 +50,6 @@ The following screen should load:
 
 Insert image here
 
-1. From the dropdown menu, select one of the example audio files.
+1. Hold down the recording button until it turns red, then say a word.
 2. Press the Play button to listen to the audio.
-3. Click Transcribe Audio to transcribe it using the model. Note that this process might take some time.
+3. Click Predict to classify word,
