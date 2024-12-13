@@ -4,7 +4,7 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 
 ## Getting started
 
-### Get S3M model
+### Export Hugging Face S3M model to ONNX
 
 1. Create directory:
 
