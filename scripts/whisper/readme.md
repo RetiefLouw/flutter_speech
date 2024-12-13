@@ -8,8 +8,7 @@
 
 	python export_onnx.py \
 	--model tiny \
-	--hf_model openai/whisper-tiny \
-	--out_dir whisper-tiny
+	--hf_model openai/whisper-tiny 
 
 Copy the exported files to the assets folder in the Flutter application, and update the `pubspec.yaml` file accordingly.
 
