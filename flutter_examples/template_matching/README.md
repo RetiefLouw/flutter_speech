@@ -14,15 +14,13 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 
 	For example, to export Hubert-Base to ONNX:
    	
-    		1. Install dependencies
+    		# Install dependencies
+		conda env create -f environment.yml
+		conda activate s3m_onnx
 
-			conda env create -f environment.yml
-			conda activate s3m_onnx
-		2. Export model
-			python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
+   		# Export model
+		python convert_onnx.py facebook/hubert-base-ls960
    
-	
-	>[!NOTE]
 	>More options [here](../../scripts/self_supervised).
 
 	Link model files to assets:
