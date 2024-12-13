@@ -36,7 +36,7 @@ This is an application showing how to use a self-supervised speech model (S3M) f
 
 ### Audio
 
-Three audio files from the babloon test set are included in the assets folder.
+Three reference audio files are included in `assets/audio/references` folder containing the words: 'mouse', 'cat', and 'dog'.
 
 ## Run application on android device
 
