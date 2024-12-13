@@ -1,1 +1,7 @@
-Abort message: 'terminating due to uncaught exception of type Ort::Exception: Failed to load model because protobuf parsing failed.'
+## Things to try when stuff is not working:
+	
+Clear application build and all cache (run in terminal):
+	
+	flutter clean
+	flutter pub cache clean
+

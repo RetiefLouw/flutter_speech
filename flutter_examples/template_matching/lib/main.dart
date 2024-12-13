@@ -188,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _statusLabel = "Loading model";
     });
     try {
-      await _featureExtractor?.initModel();
+      await _featureExtractor.initModel();
       // print("MODEL LOADED");
       setState(() {
        _statusLabel = "Model loaded";
@@ -203,6 +203,12 @@ class _MyHomePageState extends State<MyHomePage> {
       'assets/audio/references/cat.pcm',
       'assets/audio/references/mouse.pcm'
     ];
+    // final templates = [
+    //     await copyAssetFile('assets/audio/references/dog.pcm'),
+    //     await copyAssetFile('assets/audio/references/cat.pcm'),
+    //     await copyAssetFile('assets/audio/references/mouse.pcm')
+    // ];
+    
 
     List<String> templateLabels = templates.map((filePath) {
       // Use `basename` to get the filename from the file path (e.g., "dog.pcm")
@@ -286,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _statusLabel = 'Prediction: $match';
     });
 
-    await _featureExtractor?.release();
+    await _featureExtractor.release();
   }
 
   @override

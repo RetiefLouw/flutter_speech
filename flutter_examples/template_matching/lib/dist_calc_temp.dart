@@ -63,6 +63,7 @@ int findClosestListIndex(
 
   for (int i = 0; i < referenceSet.length; i++) {
     double distance = cosineDistance(referenceSet[i], newList);
+    print(distance);
     print("Distance to referenceList $i: $distance");
 
     if (distance < minDistance) {
