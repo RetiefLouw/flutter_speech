@@ -21,13 +21,9 @@ This is an application showing how to use a self-supervised speech model (S3M) f
    		# Export model
 		python convert_onnx.py facebook/hubert-base-ls960
    
-	>More options [here](../../scripts/self_supervised).
-
 	Link model files to assets:
 
-		ln -s $(pwd)/../../scripts/whisper/out/tiny-encoder.int8.onnx assets/models/
-		ln -s $(pwd)/../../scripts/whisper/out/tiny-decoder.int8.onnx assets/models/
-		ln -s $(pwd)/../../scripts/whisper/out/tiny-tokens.txt assets/models/
+		ln -s $(pwd)/../../scripts/s3m/hubert-base-ls960/model.onnx assets/models/
 
 
 4. Change `pubspec.yaml`:
