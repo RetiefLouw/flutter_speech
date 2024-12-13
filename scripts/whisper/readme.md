@@ -1,6 +1,7 @@
 ## Install dependencies
 
 	conda env create -f environment.yml
+ 	whisper_onnx
 
 
 ## Export Hugging Face Whisper model to ONNX
