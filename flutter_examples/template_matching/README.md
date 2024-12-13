@@ -1,6 +1,6 @@
 # Word Classification Application Using AWE with Mean Pooling of Self-Supervised Speech Features
 
-This is an application showing how to use a self-supervised speech model (S3M) for feature extraction. The example use case here is for matching words to a reference set to predict a new word. A reference set of three words are given in assets/audio. The app expects a new recording from the user. The word will then be predicted as one of the examples from the reference set.
+This application demonstrates how to use a self-supervised speech model (S3M) for feature extraction. This example involves matching a spoken word to a reference set in order to predict the word. A reference set of three words is provided in the `assets/audio` folder. The app prompts the user to record a new word, which will then be predicted as one of the words from the reference set.
 
 ## Getting started
 
