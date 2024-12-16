@@ -66,7 +66,7 @@ Running `java --version` in the terminal should display the following:
 	Add to PATH:
 
 		echo '# Flutter SDK' >> ~/.bashrc
-		echo 'export PATH="~/development/flutter/bin:$PATH"' >> ~/.bashrc
+		echo 'export PATH="$(pwd)/flutter/bin:$PATH"' >> ~/.bashrc
 
 	To see the commit history of available versions, run:
 
