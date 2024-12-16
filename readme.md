@@ -73,6 +73,8 @@ Running `java --version` in the terminal should display the following:
 		
 		cd flutter
 		git checkout 2663184
+		cd bin
+		./flutter --version
 
 	Running `./flutter --version` in the terminal should display the following:
 
