@@ -59,7 +59,7 @@ Running `java --version` in the terminal should display the following:
 4. Install **Flutter** 
 
 	To use specific Flutter version:
-   		mkdir ../src && cd "$_"
+		mkdir ../src && cd "$_"
 		git clone -b main https://github.com/flutter/flutter.git
 
 	Add to PATH:
