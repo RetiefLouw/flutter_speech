@@ -6,15 +6,12 @@ This application implements a real-time voice activity detection (VAD) system us
 
 ### Download Silero VAD model
 
-1. Create directory:
+1. Download model and move to assets:
 
 		mkdir -p assets/models
-		cd assets/models
-
-2. Download model:
-
 		wget https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx
-
+		mv silero_vad.onnx assets/models/
+		
 3. Change `pubspec.yaml`:
 
 		flutter:
