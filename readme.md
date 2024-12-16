@@ -68,12 +68,10 @@ Running `java --version` in the terminal should display the following:
 		echo '# Flutter SDK' >> ~/.bashrc
 		echo "export PATH=\"$(pwd)/flutter/bin:\$PATH\"" >> ~/.bashrc
 
-	To see the commit history of available versions, run:
-
-		flutter downgrade
 
 	Downgrade to version 3.24.3 using with `commit-hash = 2663184` (see [archive](https://docs.flutter.dev/release/archive)):
 		
+		cd flutter
 		git checkout 2663184
 
 	Running `./flutter --version` in the terminal should display the following:
