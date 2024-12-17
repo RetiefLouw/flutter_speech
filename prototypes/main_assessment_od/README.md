@@ -18,6 +18,6 @@ Change `pubspec.yaml`
     ...
         assets:
         - assets/models/silero_vad.onnx
-        - assets/models/tiny-encoder.int8.onnx # Update accordingly
-        - assets/models/tiny-decoder.int8.onnx # Update accordingly
-        - assets/models/tiny-tokens.txt # Update accordingly
+        - assets/models/tiny-encoder.int8.onnx #Update accordingly
+        - assets/models/tiny-decoder.int8.onnx #Update accordingly
+        - assets/models/tiny-tokens.txt #Update accordingly
