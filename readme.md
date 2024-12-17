@@ -3,7 +3,7 @@
 Here is the [link](https://docs.flutter.dev/get-started/install/linux/android) to the official installation instructions. Below are the steps to replicate the development environment used for building the Flutter demo applications in this repository.
 
 
-The following versions were used to build the projects:
+Software versions used:
 
 - JDK 17
 - Android Studio 2024.2.1 (Ladybug)
