@@ -12,7 +12,7 @@ This prototype performs the MAIN assessment on the device. The app features an i
 
 2. Export a Hugging Face Whisper model [here](../../scripts/whisper) and copy files to `assets/models`.
 
-3. Change `pubspec.yaml`
+3. Change `pubspec.yaml`:
 
         flutter:
         ...
