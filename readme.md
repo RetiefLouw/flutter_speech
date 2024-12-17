@@ -152,5 +152,5 @@ Ignore warning messages for now...
 - [Speech recognition](flutter_examples/speech_recognition/)
 - [Speech feature extraction using self-supervised speech models](flutter_examples/template_matching/)
 
-## Prototpyes
+# Prototpyes
 - [MAIN assessment on-device](prototypes/main_assessment_od)
