@@ -4,15 +4,15 @@ This prototype performs the MAIN assessment on the device. The app features an i
 
 ## Getting Started
 
-Download Silero-VAD model and add to assets:
+1. Download Silero-VAD model and add to assets:
 
     mkdir -p assets/models
     wget https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx
     mv silero_vad.onnx assets/models/
 
-Export a Hugging Face Whisper model [here](../../scripts/whisper) and copy files to `assets/models`.
+2. Export a Hugging Face Whisper model [here](../../scripts/whisper) and copy files to `assets/models`.
 
-Change `pubspec.yaml`
+3. Change `pubspec.yaml`
 
     flutter:
     ...
