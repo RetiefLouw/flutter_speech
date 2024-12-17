@@ -10,11 +10,15 @@ Download Silero-VAD model and add to assets:
     wget https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx
     mv silero_vad.onnx assets/models/
 
-A few resources to get you started if this is your first Flutter project:
+Export a Hugging Face Whisper model [here](../../scripts/whisper) and copy files to `assets/models`.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Change `pubspec.yaml`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    flutter:
+    ...
+    
+    assets:
+    - assets/models/silero_vad.onnx
+    - assets/models/tiny-encoder.int8.onnx
+    - assets/models/tiny-decoder.int8.onnx
+    - assets/models/tiny-tokens.txt
