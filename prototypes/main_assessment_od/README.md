@@ -6,9 +6,9 @@ This prototype performs the MAIN assessment on the device. The app features an i
 
 Download Silero-VAD model and add to assets:
 
-  mkdir -p assets/models
-  wget https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx
-  mv silero_vad.onnx assets/models/
+    mkdir -p assets/models
+    wget https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx
+    mv silero_vad.onnx assets/models/
 
 A few resources to get you started if this is your first Flutter project:
 
