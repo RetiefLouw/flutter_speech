@@ -1,6 +1,6 @@
 # Setup Android development environment on Linux
 
-Here is the [link](https://docs.flutter.dev/get-started/install/linux/android) to the official installation instructions. Below are the steps to replicate the development environment used for building the Flutter demo applications in `flutter_examples`.
+Here is the [link](https://docs.flutter.dev/get-started/install/linux/android) to the official installation instructions. Below are the steps to replicate the development environment used for building the Flutter demo applications in this repository.
 
 
 The following versions were used to build the projects:
