@@ -153,12 +153,4 @@ Ignore warning messages for now...
 - [Speech feature extraction using self-supervised speech models](flutter_examples/template_matching/)
 
 ## Prototpyes
-Main assessment:
-- VAD (silero)
-- Whisper on-device
-- recording
-
-Template matching
-- VAD
-- recording
-- feature extractor
+- [MAIN assessment on-device](prototypes/main_assessment_od)
