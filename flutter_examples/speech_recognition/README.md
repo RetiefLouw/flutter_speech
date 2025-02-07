@@ -11,19 +11,17 @@ This is an application showing how to perform non-realtime speech recognition on
 
 		mkdir -p assets/models
 
-2. Export HF Whisper model [here](../../scripts/whisper) and copy model files to `assets/models`.
-	For example, to export Whisper tiny:
-
-		python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
+2. Export HF Whisper model [here](../../scripts/whisper) by reading the instructions and copy model files to `assets/models`.
 
 	Link model files to assets:
 
-		ln -s $(pwd)/../../scripts/whisper/out/tiny-encoder.int8.onnx assets/models/
-		ln -s $(pwd)/../../scripts/whisper/out/tiny-decoder.int8.onnx assets/models/
-		ln -s $(pwd)/../../scripts/whisper/out/tiny-tokens.txt assets/models/
+		# Create symbolic links for the model files
+		ln -s $(pwd)/scripts/whisper/out/tiny-encoder.int8.onnx flutter_examples/speech_recognition/assets/models/tiny-encoder.int8.onnx
+		ln -s $(pwd)/scripts/whisper/out/tiny-decoder.int8.onnx flutter_examples/speech_recognition/assets/models/tiny-decoder.int8.onnx
+		ln -s $(pwd)/scripts/whisper/out/tiny-tokens.txt flutter_examples/speech_recognition/assets/models/tiny-tokens.txt
 
 
-4. Change `pubspec.yaml`:
+4. Check links in `pubspec.yaml`:
 	
 		flutter:
 		  ...

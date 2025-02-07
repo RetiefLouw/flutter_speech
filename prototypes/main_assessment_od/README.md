@@ -10,7 +10,11 @@ This prototype performs the MAIN assessment on the device. The app features an i
         wget https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx
         mv silero_vad.onnx assets/models/
 
-2. Export a Hugging Face Whisper model [here](../../scripts/whisper) and copy files to `assets/models`.
+2. Export a Hugging Face Whisper model [here](../../scripts/whisper) and link files to `assets/models`.
+
+        ln -s /home/retief/Documents/git-work/flutter_speech/scripts/whisper/out/tiny-decoder.int8.onnx tiny-decoder.int8.onnx
+        ln -s /home/retief/Documents/git-work/flutter_speech/scripts/whisper/out/tiny-encoder.int8.onnx tiny-encoder.int8.onnx
+        ln -s /home/retief/Documents/git-work/flutter_speech/scripts/whisper/out/tiny-tokens.txt tiny-tokens.txt
 
 3. Change `pubspec.yaml`:
 
