@@ -34,23 +34,6 @@ from whisper.model import (
 
 import sys
 from transformers import WhisperModel
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import whisper
-from whisper.model import (
-    AudioEncoder,
-    MultiHeadAttention,
-    ResidualAttentionBlock,
-    TextDecoder,
-    scaled_dot_product_attention,  # Import the attention function directly
-)
-import onnx
-from onnxruntime.quantization import QuantType, quantize_dynamic
-import argparse
-import os
-from pathlib import Path
-from typing import Any, Dict, Optional
 
 
 FILE_PATH = os.path.dirname(os.path.realpath(__file__))
@@ -215,16 +198,16 @@ class MultiHeadAttentionCross(nn.Module):
         super().__init__()
         self.multiHeadAttention = inMultiHeadAttention
 
-    def forward(self, x, k_cache, v_cache, is_causal: bool = True): # Add is_causal here
+    def forward(
+        self,
+        x: Tensor,
+        k: Tensor,
+        v: Tensor,
+        mask: Optional[Tensor] = None,
+    ):
         q = self.multiHeadAttention.query(x)
-        k = self.multiHeadAttention.key(x)
-        v = self.multiHeadAttention.value(x)
-
-        k_cache[:, -k.shape[1] :, :] = k
-        v_cache[:, -v.shape[1] :, :] = v
-
-        wv, qk = scaled_dot_product_attention(q, k_cache, v_cache, mask=None, is_causal=is_causal) # Correct call
-        return self.multiHeadAttention.out(wv), k_cache, v_cache
+        wv, qk = self.multiHeadAttention.qkv_attention(q, k, v, mask)
+        return self.multiHeadAttention.out(wv)
 
 
 class MultiHeadAttentionSelf(nn.Module):
@@ -232,18 +215,22 @@ class MultiHeadAttentionSelf(nn.Module):
         super().__init__()
         self.multiHeadAttention = inMultiHeadAttention
 
-    def forward(self, x, k_cache, v_cache, mask: Tensor, is_causal: bool = True): # Add is_causal
-        q = self.multiHeadAttention.query(x)
-        k = self.multiHeadAttention.key(x)
-        v = self.multiHeadAttention.value(x)
+    def forward(
+        self,
+        x: Tensor,  # (b, n_ctx      , n_state)
+        k_cache: Tensor,  # (b, n_ctx_cache, n_state)
+        v_cache: Tensor,  # (b, n_ctx_cache, n_state)
+        mask: Tensor,
+    ):
+        q = self.multiHeadAttention.query(x)  # (b, n_ctx, n_state)
+        k = self.multiHeadAttention.key(x)  # (b, n_ctx, n_state)
+        v = self.multiHeadAttention.value(x)  # (b, n_ctx, n_state)
 
-        k_cache[:, -k.shape[1] :, :] = k
-        v_cache[:, -v.shape[1] :, :] = v
+        k_cache[:, -k.shape[1] :, :] = k  # (b, n_ctx_cache + n_ctx, n_state)
+        v_cache[:, -v.shape[1] :, :] = v  # (b, n_ctx_cache + n_ctx, n_state)
 
-        wv, qk = self.multiHeadAttention.qkv_attention(q, k_cache, v_cache, mask, is_causal=is_causal) # Pass is_causal
+        wv, qk = self.multiHeadAttention.qkv_attention(q, k_cache, v_cache, mask)
         return self.multiHeadAttention.out(wv), k_cache, v_cache
-
-
 
 
 class ResidualAttentionBlockTensorCache(nn.Module):
@@ -257,15 +244,23 @@ class ResidualAttentionBlockTensorCache(nn.Module):
             else None
         )
 
-    def forward(self, x, self_k_cache, self_v_cache, cross_k, cross_v, mask: Optional[Tensor] = None, is_causal: bool = True): # Add is_causal
+    def forward(
+        self,
+        x: Tensor,
+        self_k_cache: Tensor,
+        self_v_cache: Tensor,
+        cross_k: Tensor,
+        cross_v: Tensor,
+        mask: Tensor,
+    ):
         self_attn_x, self_k_cache_updated, self_v_cache_updated = self.attn(
-            self.originalBlock.attn_ln(x), self_k_cache, self_v_cache, mask, is_causal=is_causal # Pass is_causal
+            self.originalBlock.attn_ln(x), self_k_cache, self_v_cache, mask=mask
         )
         x = x + self_attn_x
 
         if self.cross_attn:
             x = x + self.cross_attn(
-                self.originalBlock.cross_attn_ln(x), cross_k, cross_v, is_causal=is_causal # Pass is_causal
+                self.originalBlock.cross_attn_ln(x), cross_k, cross_v
             )
 
         x = x + self.originalBlock.mlp(self.originalBlock.mlp_ln(x))
@@ -282,8 +277,15 @@ class TextDecoderTensorCache(nn.Module):
         for orginal_block in self.textDecoder.blocks:
             self.blocks.append(ResidualAttentionBlockTensorCache(orginal_block))
 
-    def forward(self, tokens, n_layer_self_k_cache, n_layer_self_v_cache, n_layer_cross_k, n_layer_cross_v, offset, is_causal: bool = True): # Add is_causal
-    
+    def forward(
+        self,
+        tokens: Tensor,
+        n_layer_self_k_cache: Tensor,
+        n_layer_self_v_cache: Tensor,
+        n_layer_cross_k: Tensor,
+        n_layer_cross_v: Tensor,
+        offset: Tensor,
+    ):
         x = (
             self.textDecoder.token_embedding(tokens)
             + self.textDecoder.positional_embedding[
@@ -297,9 +299,12 @@ class TextDecoderTensorCache(nn.Module):
             self_k_cache = n_layer_self_k_cache[i, :, : offset[0] + tokens.shape[-1], :]
             self_v_cache = n_layer_self_v_cache[i, :, : offset[0] + tokens.shape[-1], :]
             x, self_k_cache, self_v_cache = block(
-                x, self_k_cache=self_k_cache, self_v_cache=self_v_cache,
-                cross_k=n_layer_cross_k[i], cross_v=n_layer_cross_v[i],
-                mask=self.textDecoder.mask, is_causal=is_causal # Pass is_causal
+                x,
+                self_k_cache=self_k_cache,
+                self_v_cache=self_v_cache,
+                cross_k=n_layer_cross_k[i],
+                cross_v=n_layer_cross_v[i],
+                mask=self.textDecoder.mask,
             )
             n_layer_self_k_cache[i, :, : offset[0] + tokens.shape[-1], :] = self_k_cache
             n_layer_self_v_cache[i, :, : offset[0] + tokens.shape[-1], :] = self_v_cache
@@ -374,7 +379,7 @@ def main():
     # else:
     #     out_dir = "./"
 
-    opset_version = 14
+    opset_version = 13
 
     if name == "distil-medium.en":
         filename = "./distil-medium-en-original-model.bin"
@@ -610,17 +615,14 @@ def main():
     offset = torch.tensor([tokens.shape[1]], dtype=torch.int64).to(mel.device)
     tokens = torch.tensor([[tokenizer.sot]] * n_audio).to(mel.device)  # [n_audio, 1]
 
-    is_causal = True # or False as needed
-
     logits, out_n_layer_self_k_cache, out_n_layer_self_v_cache = decoder(
-            tokens,
-            n_layer_self_k_cache,
-            n_layer_self_v_cache,
-            n_layer_cross_k,
-            n_layer_cross_v,
-            offset,
-            is_causal=is_causal,  # Provide is_causal here
-        )
+        tokens,
+        n_layer_self_k_cache,
+        n_layer_self_v_cache,
+        n_layer_cross_k,
+        n_layer_cross_v,
+        offset,
+    )
 
 
 
@@ -635,7 +637,6 @@ def main():
             n_layer_cross_k,
             n_layer_cross_v,
             offset,
-            is_causal, # Add is_causal to the input
         ),
         decoder_filename,
         opset_version=opset_version,
@@ -646,7 +647,6 @@ def main():
             "n_layer_cross_k",
             "n_layer_cross_v",
             "offset",
-            "is_causal", # Add is_causal to the input names
         ],
         output_names=["logits", "out_n_layer_self_k_cache", "out_n_layer_self_v_cache"],
         dynamic_axes={
