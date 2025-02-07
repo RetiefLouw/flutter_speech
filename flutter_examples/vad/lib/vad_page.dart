@@ -74,7 +74,7 @@ class _VADHomePageState extends State<VADHomePage> {
         child: Container(
           width: 200,
           height:200,
-          color: _isVoiceDetected ? Colors.lightBlue : Colors.red,
+          color: _isVoiceDetected ? Colors.green : Colors.red,
         ),
       ),
     ));

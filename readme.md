@@ -154,3 +154,41 @@ Ignore warning messages for now...
 
 # Prototpyes
 - [MAIN assessment on-device](prototypes/main_assessment_od)
+
+## Setting Up the Development Environment
+
+To set up the development environment, follow these steps:
+
+1. **Install Conda**: If you haven't already installed Conda, you can download and install it from the [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) website.
+
+2. **Create a New Conda Environment**: Open a terminal and run the following command to create a new Conda virtual environment named `flutter_speech_env` with Python 3.8:
+
+    ```bash
+    conda create --name flutter_speech_env python=3.8 -y
+    ```
+
+3. **Activate the Virtual Environment**: Activate the virtual environment by running the following command:
+
+    ```bash
+    conda activate flutter_speech_env
+    ```
+
+4. **Install Required Packages**: While the virtual environment is activated, install the required packages from the `requirements.txt` file:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5. **Run the Script**: After installing the packages, run the following command to execute the script:
+
+    ```bash
+    python ../../scripts/whisper/export_onnx.py --model tiny --hf_model openai/whisper-tiny
+    ```
+
+6. **Deactivate the Virtual Environment**: When you are done working in the virtual environment, you can deactivate it by running:
+
+    ```bash
+    conda deactivate
+    ```
+
+By following these steps, you will set up a Conda virtual environment with all the necessary dependencies for the project and be able to run the script successfully.
